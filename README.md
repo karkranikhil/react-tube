@@ -15,3 +15,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 * react-router-dom -DOM bindings for React Router.
 #### `npm install --save react-router-dom`
+
+* styled-components - It helps you to write actual CSS code to style your components. You can pass props to use same styled based on conditions like in js
+#### `npm i styled-components`
