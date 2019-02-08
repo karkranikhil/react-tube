@@ -3,7 +3,7 @@ import Player from './Player';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import GlobalStyle from '../styles/GlobalStyles'
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/react-tube/">
     <>
       <Switch>
         <Route exact path="/" component={Player}/>
