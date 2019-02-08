@@ -3,10 +3,11 @@ import React, {useState, useEffect} from 'react'
 import {ThemeProvider} from 'styled-components'
 import Video from '../Video'
 import Playlist from '../containers/Playlist'
-
-import StyledPlayer from '../styles/StyledPlayer'
+import logo from './logo.svg';
+import {StyledPlayer, Header, Logo} from '../styles/StyledPlayer'
 
 import {videosList} from '../../db/video'
+
 const theme={
     bgcolor:'#353535',
     bgcolorItem:'#414141',
@@ -58,17 +59,50 @@ const Player = props =>{
     )
 
     const nightModeCallback=()=>{
-
+        setState({...state, nightMode: !state.nightMode})
     }
     const endCallback=()=>{
-        
+        const videoId = props.match.params.activeVideo
+        const currentVideoIndex = state.videos.findIndex(
+            video=>video.id === videoId
+        )
+        const nextVideo = currentVideoIndex === state.videos.length-1 ? 0 : currentVideoIndex +1
+        props.history.push({
+            pathname:`${state.videos[nextVideo].id}`,
+            autoplay:false
+        })
     }
-    const progressCallback=()=>{
-        
-    }
+    const progressCallback = e => {
+        console.log(e)
+        let duration = state.activeVideo.duration
+        let splitTime = duration.split(':');
+        let totalSeconds = (+splitTime[0]) * 60 * 60 + (+splitTime[1]) * 60 + (+splitTime[2]); 
+        if(e.playedSeconds > (totalSeconds-60)){
+        // if(e.playedSeconds > 10 && e.playedSeconds < 11) {
+          const videos = [...state.videos];
+          const playedVideo = videos.find(
+            video => video.id === state.activeVideo.id
+          )
+          playedVideo.played = true;
+    
+          setState({ ...state, videos })
+    
+          // setState({
+          //   ...state,
+          //   videos: state.videos.map( element => {
+          //     return element.id === state.activeVideo.id
+          //     ? { ...element, played: true }
+          //     : element;
+          //   })
+          // });
+        }
+      };
 
     return (<ThemeProvider theme={state.nightMode ? theme:themeLight}>
+    
         {state.videos !== null ? (
+            <>
+            <Header nightMode={state.nightMode}><Logo src={logo} alt="logo" />React Tube</Header>
             <StyledPlayer>
             <Video active={state.activeVideo}
             autoplay={state.autoplay}
@@ -80,6 +114,7 @@ const Player = props =>{
             nightModeCallback={nightModeCallback}
             nightMode={state.nightMode}/>
         </StyledPlayer>
+        </>
         ):null}
         
     </ThemeProvider>)

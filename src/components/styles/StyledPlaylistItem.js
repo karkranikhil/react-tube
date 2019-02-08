@@ -5,7 +5,7 @@ const StyledPlaylistItem = styled.div`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: none;
-  border: ${props => (props.active ? "2px dotted #696969" : "none")};
+  border: ${props => (props.active ? "2px double #696969" : "none")};
   font-size: 1.6em;
   color: ${props => props.theme.color};
   min-height: 50px;
@@ -21,16 +21,16 @@ const StyledPlaylistItem = styled.div`
   cursor: pointer;
   position: relative;
 
-  ::before {
-    display: ${props => (props.active || !props.played ? "none" : "block")};
+  ::after {
+    display: ${props => (!props.played ? "none" : "block")};
     content: "";
     width: 10px;
     min-height: 10px;
     background: #409f4e;
     border-radius: 50px;
     position: absolute;
-    left: 0;
-    top: 19px;
+    right: 4px;
+    top: 30px;
   }
 
   .player_video_num {

@@ -50,11 +50,11 @@ const StyledNightMode = styled.div`
   }
 
   input:checked + .slider {
-    background-color: #3d5138;
+    background-color: #ba202e;
   }
 
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196f3;
+    box-shadow: 0 0 1px #ccc;
   }
 
   input:checked + .slider:before {

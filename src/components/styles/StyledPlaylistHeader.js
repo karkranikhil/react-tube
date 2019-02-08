@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledPlaylistHeader = styled.div`
-  background: #696969;
+  background: #1a5d7d; //#696969;
   font-family: "Hind", sans-serif;
   font-weight: 800;
   font-size: 1.6em;
