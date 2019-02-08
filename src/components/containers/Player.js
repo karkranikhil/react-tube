@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+
 import {ThemeProvider} from 'styled-components'
 import Video from '../Video'
 import Playlist from '../containers/Playlist'
 
 import StyledPlayer from '../styles/StyledPlayer'
+
+import {videosList} from '../../db/video'
 const theme={
     bgcolor:'#353535',
     bgcolorItem:'#414141',
@@ -22,13 +25,43 @@ const themeLight={
     borderPlayed:"none",
     color:"#353535"
 }
-const Player = props =>(
-    <ThemeProvider theme={state.NightMode ? theme:themeLight}>
-        <StyledPlayer>
-            <Video/>
-            <Playlist/>
-        </StyledPlayer>
-    </ThemeProvider>
+
+
+const Player = props =>{
+    const [state, setState] = useState({
+        videos:videosList.playlist,
+        activeVideo:videosList.playlist[0],
+        nightMode:true,
+        playlistId:videosList.playlistId,
+        autoplay:false
+    })
+
+    const nightModeCallback=()=>{
+
+    }
+    const endCallback=()=>{
         
-    )
+    }
+    const progressCallback=()=>{
+        
+    }
+
+    return (<ThemeProvider theme={state.nightMode ? theme:themeLight}>
+        {state.videos !== null ? (
+            <StyledPlayer>
+            <Video active={state.activeVideo}
+            autoplay={state.autoplay}
+            endCallback={endCallback}
+            progressCallback={progressCallback}/>
+            <Playlist 
+            videos={state.videos}
+            active={state.activeVideo}
+            nightModeCallback={nightModeCallback}
+            nightMode={state.nightMode}/>
+        </StyledPlayer>
+        ):null}
+        
+    </ThemeProvider>)
+        
+        }
 export default Player
