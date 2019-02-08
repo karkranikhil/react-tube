@@ -36,6 +36,27 @@ const Player = props =>{
         autoplay:false
     })
 
+    useEffect(()=>{
+        const videoId = props.match.params.activeVideo
+        if(videoId !== undefined){
+            const newActiveVideo = state.videos.findIndex(
+                video=>video.id === videoId
+            )
+            setState({
+                ...state,
+                activeVideo:state.videos[newActiveVideo],
+                autoplay:props.location.autoplay
+            })
+        } else {
+            props.history.push({
+                pathname:`/${state.activeVideo.id}`,
+                autoplay:false
+            })
+        }
+    },
+        [props.match.params.activeVideo]
+    )
+
     const nightModeCallback=()=>{
 
     }
