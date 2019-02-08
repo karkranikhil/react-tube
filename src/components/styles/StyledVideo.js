@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledVideo = styled.div`
+export const StyledVideo = styled.div`
   position: relative;
   -webkit-box-flex: 2;
   -ms-flex: 2 0 900px;
@@ -11,5 +11,9 @@ const StyledVideo = styled.div`
     display: block;
   }
 `;
+export const StyledVideoWrapper = styled.div`
+  width: 100%;
+  padding-bottom: 56.25%;
+  position: relative;
+`;
 
-export default StyledVideo;

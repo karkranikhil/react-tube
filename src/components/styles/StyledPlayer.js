@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledPlayer = styled.div`
-  background: ${props => props.theme.bgcolor}; /* #353535; */
+  background: ${props => props.theme.bgcolor};
   border: ${props => props.theme.border};
   max-width: 1800px;
   margin: 0 auto;
@@ -19,7 +19,7 @@ export const StyledPlayer = styled.div`
 `;
 export const Header = styled.div`
     height: 50px;
-    background: ${props => props.nightMode ? '#232323': '#ea4700'};
+    background: ${props => props.nightMode ? '#232323': '#2196f3'};
     color: #fff;
     line-height: 50px;
     padding-left: 10px;

@@ -1,8 +1,7 @@
 import React from 'react';
-import StyledPlaylistHeader from './styles/StyledPlaylistHeader'
-import StyledJourney from './styles/StyledJourney'
-const PlaylistHeader = ({active, total})=>(
-    <StyledPlaylistHeader>
+import {StyledJourney,StyledPlaylistHeader} from './styles/StyledPlaylistHeader'
+const PlaylistHeader = ({active, total, nightMode})=>(
+    <StyledPlaylistHeader nightMode={nightMode}>
         <p>{active.title}</p>
         <StyledJourney>
             {active.num}/{total}

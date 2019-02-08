@@ -17,7 +17,7 @@ export const videosList = {
       },
       {
         "num": 3,
-        "title": "React JS Tutorial | Learn ReactJS From a Top Udemy Instructor - Maximilian Schwarzmuller",
+        "title": "React JS Tutorial | Learn ReactJS From a Top Udemy Instructor",
         "id": "UtIOMUQ7nWM",
         "duration": "2:19:04",
         "video": "https://www.youtube.com/embed/UtIOMUQ7nWM"

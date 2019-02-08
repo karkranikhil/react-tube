@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const StyledPlaylistHeader = styled.div`
-  background: #1a5d7d; //#696969;
+export const StyledPlaylistHeader = styled.div`
+  background: ${props => props.nightMode ? '#1a5d7d': '#2196f3'};
   font-family: "Hind", sans-serif;
   font-weight: 800;
   font-size: 1.6em;
@@ -16,5 +16,16 @@ const StyledPlaylistHeader = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+export const StyledJourney = styled.div`
+  background: #565656;
+  font-size: 0.8em;
+  padding: 2px 5px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+`;
 
-export default StyledPlaylistHeader;

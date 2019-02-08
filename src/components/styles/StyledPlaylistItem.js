@@ -21,23 +21,21 @@ const StyledPlaylistItem = styled.div`
   cursor: pointer;
   position: relative;
 
-  ::after {
-    display: ${props => (!props.played ? "none" : "block")};
-    content: "";
-    width: 10px;
-    min-height: 10px;
-    background: #409f4e;
-    border-radius: 50px;
-    position: absolute;
-    right: 4px;
-    top: 30px;
-  }
-
   .player_video_num {
     flex-grow: 1; /* default 0 */
     max-width: 30px;
     padding-right: 20px;
     border-right: 2px solid #565656;
+    ::before {
+        display: ${props => (!props.played ? "none" : "block")};
+        content: "";
+        width: 10px;
+        min-height: 10px;
+        background: #409f4e;
+        border-radius: 50px;
+        position: absolute;
+        left: 0px;
+      }
   }
 
   .player_video_name,
@@ -52,7 +50,7 @@ const StyledPlaylistItem = styled.div`
 
   .player_video_duration {
     background: #565656;
-    min-width: 45px;
+    min-width: 50px;
     color: #fff;
     font-size: 0.8em;
     padding: 0px 5px;
