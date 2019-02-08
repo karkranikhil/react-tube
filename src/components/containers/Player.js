@@ -29,13 +29,19 @@ const themeLight={
 
 
 const Player = props =>{
+    const savedState = JSON.parse(localStorage.getItem(`${videosList.playlistId}`))
     const [state, setState] = useState({
-        videos:videosList.playlist,
-        activeVideo:videosList.playlist[0],
-        nightMode:true,
-        playlistId:videosList.playlistId,
-        autoplay:false
+        videos:savedState ? savedState.videos: videosList.playlist,
+        activeVideo:savedState ? savedState.activeVideo :videosList.playlist[0],
+        nightMode:savedState ? savedState.nightMode :true,
+        playlistId:savedState ? savedState.playlistId :videosList.playlistId,
+        autoplay:savedState ? savedState.autoplay :false
     })
+
+    useEffect(()=>{
+        localStorage.setItem(`${state.playlistId}`, JSON.stringify({...state}))
+
+    },[state])
 
     useEffect(()=>{
         const videoId = props.match.params.activeVideo
@@ -73,28 +79,23 @@ const Player = props =>{
         })
     }
     const progressCallback = e => {
-        console.log(e)
         let duration = state.activeVideo.duration
         let splitTime = duration.split(':');
-        let totalSeconds = (+splitTime[0]) * 60 * 60 + (+splitTime[1]) * 60 + (+splitTime[2]); 
+        let totalSeconds
+        if(splitTime.length === 3){
+            totalSeconds = (+splitTime[0]) * 60 * 60 + (+splitTime[1]) * 60 + (+splitTime[2]); 
+        } else if(splitTime.length === 2){
+            totalSeconds = (+splitTime[0]) * 60 + (+splitTime[1]); 
+        } else {
+            totalSeconds = (+splitTime[0]); 
+        }
         if(e.playedSeconds > (totalSeconds-60)){
-        // if(e.playedSeconds > 10 && e.playedSeconds < 11) {
           const videos = [...state.videos];
           const playedVideo = videos.find(
             video => video.id === state.activeVideo.id
           )
           playedVideo.played = true;
-    
           setState({ ...state, videos })
-    
-          // setState({
-          //   ...state,
-          //   videos: state.videos.map( element => {
-          //     return element.id === state.activeVideo.id
-          //     ? { ...element, played: true }
-          //     : element;
-          //   })
-          // });
         }
       };
 
