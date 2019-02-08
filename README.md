@@ -12,17 +12,17 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 * <b>react-router-dom</b> -DOM bindings for React Router.
     
-    #### `npm install --save react-router-dom`
+    #### `npm i -s react-router-dom`
 
 * <b>styled-components</b> - It helps you to write actual CSS code to style your components. You can pass props to use same styled based on conditions like in js
     
-    #### `npm i styled-components`
+    #### `npm i -s styled-components`
 
 * <b>font-family</b> - Using google fonts family hind
 
     #### `https://fonts.googleapis.com/css?family=Hind:700`
 
-## Fetures of react Tube
+## Features of react Tube
 * <p>Built using react 16.8 latest version</p>
 * <p>Navbar/Header with icon</p>
 * <p>Fetching Videos from local DB(Stubbed)</p>
