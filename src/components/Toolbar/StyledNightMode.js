@@ -1,12 +1,17 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const StyledNightMode = styled.div`
   font-family: "Hind", sans-serif;
   font-weight: 800;
   font-size: 1.6em;
   color: ${props => props.theme.color};
-  padding: 0;
-  margin: 20px;
+  background-color: ${props => props.theme.bgcolor};
+  padding: 1.5em;
+  margin: 0;
+
+  span {
+    padding-right: 1em;
+  }
 
   /* CSS taken from https://www.w3schools.com/howto/howto_css_switch.asp */
   /* The switch - the box around the slider */
@@ -24,7 +29,6 @@ const StyledNightMode = styled.div`
     height: 0;
   }
 
-  /* The slider */
   .slider {
     position: absolute;
     cursor: pointer;
@@ -33,7 +37,6 @@ const StyledNightMode = styled.div`
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: 0.4s;
     transition: 0.4s;
   }
 
@@ -45,7 +48,6 @@ const StyledNightMode = styled.div`
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: 0.4s;
     transition: 0.4s;
   }
 
@@ -58,8 +60,6 @@ const StyledNightMode = styled.div`
   }
 
   input:checked + .slider:before {
-    -webkit-transform: translateX(16px);
-    -ms-transform: translateX(16px);
     transform: translateX(16px);
   }
 
@@ -71,6 +71,6 @@ const StyledNightMode = styled.div`
   .slider.round:before {
     border-radius: 50%;
   }
-`;
+`
 
-export default StyledNightMode;
+export default StyledNightMode

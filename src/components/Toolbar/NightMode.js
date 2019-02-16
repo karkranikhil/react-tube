@@ -1,5 +1,6 @@
 import React from 'react';
-import StyledNightMode from './styles/StyledNightMode'
+import StyledNightMode from './StyledNightMode'
+
 const NightMode = ({nightModeCallback, nightMode})=>(
     <StyledNightMode>
         <span>NightMode</span>
@@ -9,4 +10,5 @@ const NightMode = ({nightModeCallback, nightMode})=>(
         </label>
     </StyledNightMode>
 )
+
 export default NightMode

@@ -36,6 +36,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 <img src="./flow-img.png" alt="flow-structure">
 
+## Changelog
+
+ * v0.2.0
+   * Wrapped the Nightmode switch into `<Toolbar>` ([tomByrer]())
+
 ## `Thanks & references`
 
 * Thanks to Udemy & Thomas Weibenfalk
