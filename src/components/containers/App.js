@@ -1,7 +1,8 @@
 import React from 'react';
 import Player from './Player';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import GlobalStyle from '../styles/GlobalStyles'
+import GlobalStyle from './App.style'
+
 const App = () => (
   <BrowserRouter basename="/react-tube/">
     <>
@@ -9,9 +10,9 @@ const App = () => (
         <Route exact path="/" component={Player}/>
         <Route exact path="/:activeVideo" component={Player}/>
       </Switch>
-    <GlobalStyle/>
+      <GlobalStyle/>
     </>
   </BrowserRouter>
 )
 
-export default App;
+export default App

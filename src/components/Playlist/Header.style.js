@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const StyledPlaylistHeader = styled.div`
+export const StyledHeader = styled.header`
   background: ${props => props.nightMode ? '#1a5d7d': '#2196f3'};
   font-family: "Hind", sans-serif;
   font-weight: 800;
@@ -15,7 +15,8 @@ export const StyledPlaylistHeader = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-`;
+`
+
 export const StyledJourney = styled.div`
   background: #565656;
   font-size: 0.8em;
@@ -27,5 +28,4 @@ export const StyledJourney = styled.div`
   flex-direction: row;
   align-items: center;
   border-radius: 5px;
-`;
-
+`
